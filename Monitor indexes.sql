@@ -11,4 +11,11 @@ usage left join sys.tables tab on usage.object_id = tab.object_id join sys.index
 
 select * from sys.dm_db_missing_index_details
 
-select * from sys.duplica
+select * from sys.stats
+
+update statistics dbo.Salesdata 
+
+exec sp_updatestats
+
+--fragmentation
+select * from sys.dm_db_index_physical_stats(DB_ID(),null,null,null,'Limited')
